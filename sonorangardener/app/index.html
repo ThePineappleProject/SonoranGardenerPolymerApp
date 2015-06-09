@@ -1,0 +1,196 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="The Sonoran Gardener web app, built with Polymer 1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="Sonoran Gardener" />
+  <title>Sonoran Gardener</title>
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+  <!-- TODO: Customize themes and icon assets for Sonoran Gardener -->
+
+  <!-- Chrome for Android theme color -->
+  <meta name="theme-color" content="#303F9F">
+
+  <!-- Web Application Manifest -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Chrome for Android Theme color -->
+  <meta name="msapplication-TileColor" content="#3372DF">
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Polymer Starter Kit">
+  <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Polymer Starter Kit">
+  <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png">
+
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+
+  <!-- build:css styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild-->
+
+  <!-- build:js bower_components/webcomponentsjs/webcomponents.min.js -->
+  <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+  <!-- endbuild -->
+
+  <!-- will be replaced with elements/elements.vulcanized.html -->
+  <link rel="import" href="elements/elements.html">
+  <!-- endreplace-->
+</head>
+
+<body unresolved class="fullbleed layout vertical">
+  <template is="dom-bind" id="app">
+
+    <paper-drawer-panel id="paperDrawerPanel" forceNarrow>
+      <div drawer>
+
+        <!-- Drawer Toolbar -->
+        <paper-toolbar id="drawerToolbar">
+          <span>Menu</span>
+        </paper-toolbar>
+
+        <!-- Drawer Content -->
+          <paper-menu class="list" attr-for-selected="data-route" selected="{{route}}">
+              <a data-route="main" href="/" paper-drawer-toggle>
+                <span>Main</span>
+              </a>
+
+              <a data-route="crops" href="/crops" paper-drawer-toggle>
+                <span>Choose crops</span>
+              </a>
+
+              <a data-route="garden" href="/garden" paper-drawer-toggle>
+                <span>Plan my garden</span>
+              </a>
+
+              <a data-route="water" href="/water" paper-drawer-toggle>
+                <span>Harvest water</span>
+              </a>
+
+              <a data-route="tips" href="/tips" paper-drawer-toggle>
+                <span>Growing tips</span>
+              </a>
+
+              <a data-route="recipes" href="/recipes" paper-drawer-toggle>
+                <span>Recipes</span>
+              </a>
+
+              <a data-route="resources" href="/resources" paper-drawer-toggle>
+                <span>Resources</span>
+              </a>
+          </paper-menu>
+      </div>
+      <paper-header-panel main mode="waterfall">
+        <!-- Main Toolbar -->
+        <paper-toolbar id="mainToolbar">
+          <button tabindex="1" id="paperToggle" paper-drawer-toggle>
+            <iron-icon icon="menu" paper-drawer-toggle></iron-icon>
+          </button>
+          <span class="flex">
+            <!-- Application name -->
+            <div class="appname paper-font-display2">Sonoran Gardener</div>
+          </span>
+
+          <!-- Toolbar icons -->
+          <paper-icon-button icon="refresh"></paper-icon-button>
+          <paper-icon-button icon="search"></paper-icon-button>
+          <div class="middle"></div>
+
+        </paper-toolbar>
+
+        <!-- Main Content -->
+          <iron-pages attr-for-selected="data-route" selected="{{route}}">
+
+            <section data-route="main">
+              <paper-material elevation="1">
+                <location-map></location-map>
+              </paper-material>
+            </section>
+
+            <section data-route="crops">
+              <paper-material elevation="1">
+                <h2 class="paper-font-display2">Choose crops</h2>
+                <p>This is the crops section</p>
+              </paper-material>
+            </section>
+
+            <section data-route="garden">
+              <paper-material elevation="1">
+                <h2 class="paper-font-display2">Plan my garden</h2>
+                <p>This is the garden section</p>
+              </paper-material>
+            </section>
+
+            <section data-route="water">
+              <paper-material elevation="1">
+                <h2 class="paper-font-display2">Harvest water</h2>
+                <p>This is the water section</p>
+              </paper-material>
+            </section>
+
+            <section data-route="tips">
+              <paper-material elevation="1">
+                <h2 class="paper-font-display2">Growing tips</h2>
+                <p>This is the tips section</p>
+              </paper-material>
+            </section>
+
+            <section data-route="recipes">
+              <paper-material elevation="1">
+                <h2 class="paper-font-display2">Recipes</h2>
+                <p>This is the recipes section</p>
+              </paper-material>
+            </section>
+
+            <section data-route="resources">
+              <paper-material elevation="1">
+                <h2 class="paper-font-display2">Resources</h2>
+                <p>This is the resources section</p>
+              </paper-material>
+            </section>
+
+          </iron-pages>
+          </paper-header-panel>
+    </paper-drawer-panel>
+
+    <paper-toast id="caching-complete"
+                 duration="6000"
+                 text="Caching complete! This app will work offline.">
+    </paper-toast>
+
+    <platinum-sw-register auto-register
+                          clients-claim
+                          skip-waiting
+                          on-service-worker-installed="displayInstalledToast">
+      <platinum-sw-cache default-cache-strategy="networkFirst"
+                         precache-file="precache.json">
+      </platinum-sw-cache>
+    </platinum-sw-register>
+
+  </template>
+
+  <!-- build:js scripts/app.js -->
+  <script src="scripts/app.js"></script>
+  <!-- endbuild-->
+</body>
+
+</html>
